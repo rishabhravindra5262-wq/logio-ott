@@ -1,0 +1,75 @@
+{
+  "entities": {
+    "Series": {
+      "title": "Series",
+      "description": "Metadata for a video series",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "verticalThumbnail": { "type": "string" },
+        "horizontalThumbnail": { "type": "string" },
+        "totalEpisodes": { "type": "number" },
+        "rating": { "type": "number" },
+        "trending": { "type": "boolean" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "title"]
+    },
+    "Video": {
+      "title": "Video",
+      "description": "Metadata for an individual episode",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "seriesId": { "type": "string" },
+        "episodeNumber": { "type": "number" },
+        "title": { "type": "string" },
+        "videoUrl": { "type": "string" },
+        "thumbnailUrl": { "type": "string" },
+        "likes": { "type": "number" },
+        "comments": { "type": "number" },
+        "coinsRequired": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "seriesId", "videoUrl"]
+    },
+    "Stats": {
+      "title": "Stats",
+      "description": "Global watch statistics",
+      "type": "object",
+      "properties": {
+        "totalViews": { "type": "number" },
+        "totalWatchTime": { "type": "number" }
+      }
+    },
+    "Config": {
+      "title": "Config",
+      "description": "Global application configuration",
+      "type": "object",
+      "properties": {
+        "featuredSeriesId": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "series": {
+      "schema": "Series",
+      "description": "Collection of all published series"
+    },
+    "videos": {
+      "schema": "Video",
+      "description": "Collection of all video episodes"
+    },
+    "stats": {
+      "schema": "Stats",
+      "description": "Global application statistics"
+    },
+    "config": {
+      "schema": "Config",
+      "description": "App configuration including featured items"
+    }
+  }
+}

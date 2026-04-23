@@ -1,0 +1,6 @@
+{
+  "name": "Micro Web Service Platform",
+  "description": "A vertical microdrama streaming service with HLS support, coin wallet, and admin dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
